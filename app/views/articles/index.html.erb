@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>List of All Articles</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Title </th>
+      <th>Description </th>
+      <th>Action  </th>
+    </tr>
+    </thead>
+  
+    <tbody>
+      <%for article in @articles%>
+      <tr>
+      <td><%=article.title %></td>
+      <td><%=article.description%></td>
+      <td>Don;t know</td>
+      </tr>
+      <%end%>
+    </tbody>
+  
+  
+  </table>
+</body>
+</html>
