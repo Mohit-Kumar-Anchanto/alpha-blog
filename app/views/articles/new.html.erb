@@ -1,4 +1,13 @@
 <h1>Creating New Article</h1>
+
+  <% if @article.errors.any? %>
+    <h2>Following Error occur while creating the article</h2>
+    <% @article.errors.full_messages.each do |msg|%>
+    <ul>
+      <li><%=msg%></li>
+    </ul>
+    <% end %>
+  <%end%>
   <%= form_with scope: :article, url: articles_path, local: true do |f| %>
     <p> 
       <%= f.label :title %><br/> 

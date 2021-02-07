@@ -9,14 +9,18 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article =Article.new()
   end
 
   def create
     #@article = Article.new(params[:article]) this is not allowed as it also has some secuirty paramaters so we need to whitelash these
     # to get our required input
     @article = Article.new(params.require(:article).permit(:title,:description))
-    @article.save
-
-    redirect_to article_path(@article)
+    if not @article.save
+      render 'new'
+    else
+      flash[:notice]="Article Saved Successfully"
+      redirect_to @article
+    end
   end
 end
