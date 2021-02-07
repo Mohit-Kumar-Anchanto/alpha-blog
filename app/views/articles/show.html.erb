@@ -8,5 +8,12 @@
   <h1>Showing Articles</h1>
   <p><strong>Title:  </strong><%=@article.title%></p>
   <p><strong>Description:  </strong><%=@article.description%></p>
+
+
+  <%= link_to 'Return to Listing',articles_path %>
+  <%= link_to 'Edit' ,edit_article_path(@article) %>
+  <%# get the prefix from raild route expanded add _path in it and then in () add id of it. %>
+  <%= link_to 'Delete',@article ,method: :delete ,:data => {:confirm => 'Are you sure?'}%>
+      
 </body>
 </html>
