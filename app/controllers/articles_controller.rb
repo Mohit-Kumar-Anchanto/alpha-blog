@@ -4,6 +4,21 @@ class ArticlesController < ApplicationController
     @article=Article.find(params[:id])
   end
 
+
+
+  def edit
+    @article=Article.find(params[:id])
+  end
+
+  def update
+    @article=Article.find(params[:id])
+    if @article.update(params.require(:article).permit(:title,:description))
+      flash[:notice]="Updated successfully"
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
   def index
     @articles=Article.all
   end
