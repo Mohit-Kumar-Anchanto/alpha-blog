@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
     #@article = Article.new(params[:article]) this is not allowed as it also has some secuirty paramaters so we need to whitelash these
     # to get our required input
     @article = Article.new(article_params)
+    @article.user = User.first
     if not @article.save
       render 'new'
     else

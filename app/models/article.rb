@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
 
+  belongs_to :user
   #Validations
   validates :title ,presence:true , length: {minimum:6, maximum:18}
   validates :description , presence:true , length: {minimum:8, maximum:100}
