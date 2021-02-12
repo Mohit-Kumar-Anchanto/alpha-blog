@@ -15,7 +15,7 @@
       <%for article in @articles%>
         <div class="card text-center mt-4">
           <div class="card-header font-italic">
-            Created by Mohit kumar
+            Created by <%= article.user.username%>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article ,class:"text-success"%></h5>
