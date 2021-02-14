@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
   
-  before_action :set_action ,only:[:edit,:update]
+  before_action :set_action ,only:[:edit,:update,:show]
   
+
+
+  def show
+
+  end
+
+
   def new
     @user = User.new
   end
@@ -14,7 +21,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "User was successfully updated"
-      redirect_to articles_path
+      redirect_to @user
     else
       flash[:error] = "Something went wrong"
       render 'edit'
@@ -25,7 +32,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice]="You have Succesfully Signup #{@user.username}!"
-      redirect_to articles_path
+      redirect_to @user
     else
       render "new"
     end
