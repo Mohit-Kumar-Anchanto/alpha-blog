@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
 
 
   def destroy
-    
     @article.destroy
     flash[:notice]="Article Deleted Successfully"
     redirect_to articles_path
@@ -30,7 +29,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles=Article.all
+    @articles=Article.paginate(page: params[:page], per_page: 2)
   end
 
   def new
