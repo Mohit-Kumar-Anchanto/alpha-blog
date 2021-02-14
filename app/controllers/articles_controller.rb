@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   before_action :set_action ,only:[:show,:destroy,:edit,:update]
   def show
     #@ will make it a instance variable and now we can use it in the html file
@@ -7,12 +8,16 @@ class ArticlesController < ApplicationController
 
 
   def destroy
+    
     @article.destroy
     flash[:notice]="Article Deleted Successfully"
     redirect_to articles_path
-  
+
   end
+
+
   def edit
+
   end
 
   def update
