@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   
 
 
+  def index
+    @user = User.all
+  end
   def show
 
   end
@@ -21,7 +24,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "User was successfully updated"
-      redirect_to @user
+      redirect_to users_path
     else
       flash[:error] = "Something went wrong"
       render 'edit'
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice]="You have Succesfully Signup #{@user.username}!"
-      redirect_to @user
+      redirect_to users_path
     else
       render "new"
     end

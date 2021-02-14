@@ -6,7 +6,7 @@
       <%for article in obj %>
         <div class="card text-center mt-4">
           <div class="card-header font-italic">
-            Created by <%= article.user.username%>
+            Created by <%= link_to article.user.username,article.user%>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article ,class:"text-success"%></h5>

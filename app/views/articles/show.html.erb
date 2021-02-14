@@ -13,7 +13,8 @@
     <div class="col-8">
         <div class="card text-center mt-4">
           <div class="card-header font-italic">
-            Created by <%= @article.user.username%>
+            Created by <%=link_to @article.user.username, @article.user %>
+            <%= link_to gravatar(@article.user,size:80),@article.user %>
           </div>
           <div class="card-body">
             <h5 class="card-title text-success"><%= @article.title %></h5>
