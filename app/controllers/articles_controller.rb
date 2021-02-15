@@ -1,6 +1,14 @@
 class ArticlesController < ApplicationController
 
   before_action :set_action ,only:[:show,:destroy,:edit,:update]
+
+  before_action :require_user, except:[:show,:index]
+
+  before_action :same_user, except:[:show,:index]
+
+  
+
+
   def show
     #@ will make it a instance variable and now we can use it in the html file
     
@@ -40,7 +48,7 @@ class ArticlesController < ApplicationController
     #@article = Article.new(params[:article]) this is not allowed as it also has some secuirty paramaters so we need to whitelash these
     # to get our required input
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if not @article.save
       render 'new'
     else
@@ -58,5 +66,12 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title,:description)
+  end
+
+  def same_user
+    if current_user != @article.user and current_user.admin? == false
+      flash[:alert] = "You can edit your own articles only"
+      redirect_to @article
+    end
   end
 end

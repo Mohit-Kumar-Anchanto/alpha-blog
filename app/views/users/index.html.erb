@@ -10,7 +10,6 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-8">
-      <%= link_to  "Create New User", signup_path ,class:"btn btn-outline-info btn-lg btn-block" %>
       <%for user in @user %>
         <div class="card text-center mt-4">
           <div class="card-header font-italic">
@@ -25,7 +24,13 @@
                 <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
               </div>
               <div class="col-6">
-                <%= link_to "Edit", edit_user_path(user) ,class:"btn btn-outline-success"%>  
+                <% if logged_in? and current_user == user %>
+                  <%= link_to "Edit", edit_user_path(user) ,class:"btn btn-outline-success"%>  
+                <% elsif logged_in? and current_user.admin? %>
+                  <%= link_to "Delete", user ,method: :delete ,:data => {:confirm => 'Are you sure?'} ,class:"btn btn-outline-danger"%>
+                <% else %>
+                  <%= link_to "Edit", edit_user_path(user) ,class:"btn btn-outline-danger disabled"%>
+                <% end %>
               </div>
             </div>
           </div>

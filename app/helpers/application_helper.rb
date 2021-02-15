@@ -8,4 +8,5 @@ module ApplicationHelper
     image_tag(url,class:"rounded mx-auto d-block",alt: user.username)
   end
 
+  
 end
