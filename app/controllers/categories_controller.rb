@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-
+    @Categories = Category.paginate(page: params[:page], per_page: 2)
   end
 
   private_methods
