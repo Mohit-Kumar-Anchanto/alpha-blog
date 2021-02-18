@@ -11,6 +11,17 @@
   <%= will_paginate @articles, :container => false %>
 </div>
 
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <% if logged_in? %>
+        <%= link_to "Create New Articles", new_article_path,class:"btn btn-outline-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= render 'article' ,obj:@articles%>
 
 <div class="flickr_pagination mb-4 mt-4">
