@@ -15,7 +15,13 @@
           <div class="card-header font-italic">
             Created by <%=link_to @article.user.username, @article.user %>
             <%= link_to gravatar(@article.user,size:80),@article.user %>
+            <div class="mt-4">
+              <% if @article.categories.any?%>
+                <%= render @article.categories %>
+              <% end %>
+            </div>
           </div>
+          
           <div class="card-body">
             <h5 class="card-title text-success"><%= @article.title %></h5>
             <p class="card-text"><%= truncate(@article.description,length:100)%></p>

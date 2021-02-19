@@ -9,6 +9,11 @@
         <div class="card text-center mt-4">
           <div class="card-header font-italic">
             Created by <%= link_to article.user.username,article.user%>
+            <div class="mt-4">
+              <% if article.categories.any?%>
+                <%= render article.categories %>
+              <% end %>
+            </div>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article ,class:"text-success"%></h5>
