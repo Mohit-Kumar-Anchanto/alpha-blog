@@ -1,0 +1,17 @@
+name: Brakeman
+on: [pull_request]
+jobs:
+  brakeman:
+    runs-on: ubuntu-18.04     
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Run Brakeman
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler --version 1.17.3
+          gem install brakeman --version 4.4.0
+          brakeman -w3 -A -z --color --except SprocketsPathTraversal,SQLCVEs

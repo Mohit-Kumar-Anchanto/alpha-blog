@@ -28,6 +28,9 @@ gem 'will_paginate', '~> 3.1.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'rails-erd', group: :development
+
+
 group :development, :test do
   #Moved to avoid with production
   gem 'sqlite3', '~> 1.4'
