@@ -15,4 +15,4 @@ jobs:
       - uses: SonicGarden/check-merged-action@v1
         with:
           token: ${{secrets.GITHUB_TOKEN }}
-          title: # :anger: Do not Merge!
+          title: :anger :DonotMerge!
