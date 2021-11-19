@@ -9,7 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
+#Yes Let's control the version of it and then move ahead.
 ActiveRecord::Schema.define(version: 2021_02_18_194812) do
 
   create_table "article_categories", force: :cascade do |t|
