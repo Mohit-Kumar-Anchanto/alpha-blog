@@ -15,3 +15,5 @@ jobs:
       - uses: SonicGarden/check-merged-action@v1
         with:
           token: ${{secrets.GITHUB_TOKEN }}
+          originBranch: qa-test
+          title: :anger :boom "MergeIntoQAFirst"
