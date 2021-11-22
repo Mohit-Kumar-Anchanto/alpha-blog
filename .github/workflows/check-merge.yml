@@ -2,7 +2,7 @@ name: Check merged
 on:
   pull_request:
     branches:
-      - main
+      - qa-test
 
 jobs:
   check-staging:
@@ -15,5 +15,5 @@ jobs:
       - uses: SonicGarden/check-merged-action@v1
         with:
           token: ${{secrets.GITHUB_TOKEN }}
-          originBranch: qa-test
+          originBranch: staging
           title: "# :roll_eyes: :anger: Not Merge Into QA!"
