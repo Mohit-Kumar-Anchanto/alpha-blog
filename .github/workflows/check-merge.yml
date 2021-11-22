@@ -16,4 +16,4 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN }}
           originBranch: qa-test
-          title: :boom: :roll_eyes: MergeIntoQAFirst
+          title: "# :roll_eyes: :anger: Not Merge Into QA!"
